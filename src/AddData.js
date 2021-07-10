@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 
 
 const AddData = (props) =>{
-    const {addItem} = props
+    const {addItem,handleAuth} = props
     const [name, setName] = useState('')
 
     const handleChange =(e) =>{
@@ -17,14 +17,15 @@ const AddData = (props) =>{
             name: name
         }
         addItem(formData)
-        setName('')
+        handleAuth(false)
+
     }
     return (
 
         <div>
 
             <form onSubmit={handleSubmit}>
-                <input type="text"  value={name} onChange={handleChange} name='name' placeholder="enter name"/><br/>
+                <input type="text"  value={name} onChange={handleChange} name='name' placeholder="Add item"/><br/>
                 <input type="submit" value="save"/>
             </form>
 
